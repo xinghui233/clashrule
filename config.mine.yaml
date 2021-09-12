@@ -1,0 +1,252 @@
+parsers: # array
+  # - reg: .*$ 匹配所有订阅，或  - url: https://example.com/profile.yaml 指定订阅
+  - reg: .*$
+  # 删除服务商提供的策略组和规则
+    code: |
+      module.exports.parse = (raw, { yaml }) => {
+        const rawObj = yaml.parse(raw)
+        const { 'Rule': rules = [], 'Proxy Group':groups = [] } = rawObj
+        return yaml.stringify({ ...rawObj, 'proxy-groups': groups, rules })
+      } 
+  # 建立自己的配置
+    yaml:
+      prepend-proxy-groups: # 建立策略组
+        - name: 节点选择
+          type: select
+
+        - name: 其余
+          type: select
+          proxies:
+            - 节点选择
+            - 全球直连
+
+        - name: Onedrive
+          type: select
+          proxies:
+            - 全球直连
+            - 节点选择
+
+        - name: 微软服务
+          type: select
+          proxies:
+            - 全球直连
+            - 节点选择
+
+        - name: 哔哩哔哩
+          type: select
+
+        - name: steam
+          type: select
+
+        - name: 自动选择
+          type: url-test # 自动选择延迟最低的节点，也可填 fallback 节点故障时切换下一个，laod-balance 负载均衡
+          url: http://www.gstatic.com/generate_204
+          interval: 300
+          tolerance: 50
+
+        - name: 全球直连
+          type: select
+          proxies:
+            - DIRECT
+            - REJECT
+
+        - name: 全球拦截
+          type: select
+          proxies:
+            - REJECT
+            - DIRECT
+            
+      commands:
+        # 向指定策略组添加订阅节点名
+        - proxy-groups.节点选择.proxies=[]proxyNames
+        - proxy-groups.节点选择.proxies.0+全球直连
+        - proxy-groups.节点选择.proxies.1+自动选择
+        - proxy-groups.自动选择.proxies=[]proxyNames
+        - proxy-groups.哔哩哔哩.proxies=[]proxyNames
+        - proxy-groups.哔哩哔哩.proxies.0+全球直连
+        - proxy-groups.哔哩哔哩.proxies.1+节点选择
+        - proxy-groups.steam.proxies=[]proxyNames
+        - proxy-groups.steam.proxies.0+全球直连
+        - proxy-groups.steam.proxies.1+节点选择
+
+      mix-rule-providers:
+        # 局域网
+        LocalAreaNetwork:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/LocalAreaNetwork.yaml
+          interval: 86400
+
+        # Unbreak 白名单 不应该被广告链接的网站
+        UnBan:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/UnBan.yaml
+          interval: 86400
+
+        # 去常见广告关键字、广告联盟
+        BanAD:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/BanAD.yaml
+          interval: 86400
+
+        # 常用应用的去广告规则。
+        BanProgramAD:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/BanProgramAD.yaml
+          interval: 86400
+
+        # ABP官方维护的的规则
+        BanEasyList:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/BanEasyList.yaml
+          interval: 86400
+
+        # ABP官方维护的适合国内使用的规则
+        BanEasyListChina:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/BanEasyListChina.yaml
+          interval: 86400
+
+        # ABP官方维护的EasyPrivacy列表，隐私保护，屏蔽隐私追踪
+        BanEasyPrivacy:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/BanEasyPrivacy.yaml
+          interval: 86400
+
+        # 中国可以访问的谷歌网址
+        GoogleCN:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/GoogleCN.yaml
+          interval: 86400
+
+        # 谷歌推送服务
+        GoogleFCM:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/GoogleFCM.yaml
+          interval: 86400
+
+        # onedrive服务
+        OneDrive:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/OneDrive.yaml
+          interval: 86400
+
+        # 微软网址
+        Microsoft:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/Microsoft.yaml
+          interval: 86400
+
+        # 苹果服务
+        Apple:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/Apple.yaml
+          interval: 86400
+
+        # telegram
+        Telegram:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/Telegram.yaml
+          interval: 86400
+
+        # steam游戏
+        Steam:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/Steam.yaml
+          interval: 86400
+
+        # Bilibili
+        Apple:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/Bilibili.yaml
+          interval: 86400
+
+        # 哔哩哔哩 港澳台番剧
+        BilibiliHMT:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/BilibiliHMT.yaml
+          interval: 86400
+
+        # 国外媒体
+        ProxyMedia:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/ProxyMedia.yaml
+          interval: 86400
+
+        # 国外网站
+        ProxyLite:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/ProxyLite.yaml
+          interval: 86400
+
+        # GFW列表
+        ProxyGFWlist:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/ProxyGFWlist.yaml
+          interval: 86400
+
+        # 中国域名
+        ChinaDomain:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/ChinaDomain.yaml
+          interval: 86400
+
+        # ChinaCompanyIp
+        ChinaCompanyIp:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/ChinaCompanyIp.yaml
+          interval: 86400
+
+        # 下载软件
+        Download:
+          type: http
+          behavior: classical
+          url: pass
+          path: ./Rules/Download.yaml
+          interval: 86400
+
+      prepend-rules:
+        - RULE-SET,LocalAreaNetwork,DIRECT
+        - GEOIP,CN,DIRECT
+        - MATCH,其余
