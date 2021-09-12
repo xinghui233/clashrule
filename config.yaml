@@ -17,7 +17,7 @@ parsers:
             - 节点选择
             - 全球直连
 
-        - name: Onedrive
+        - name: OneDrive
           type: select
           proxies:
             - 全球直连
@@ -32,7 +32,7 @@ parsers:
         - name: 哔哩哔哩
           type: select
 
-        - name: steam
+        - name: STEAM
           type: select
 
         - name: 自动选择
@@ -61,14 +61,20 @@ parsers:
         - proxy-groups.哔哩哔哩.proxies=[]proxyNames
         - proxy-groups.哔哩哔哩.proxies.0+全球直连
         - proxy-groups.哔哩哔哩.proxies.1+节点选择
-        - proxy-groups.steam.proxies=[]proxyNames
-        - proxy-groups.steam.proxies.0+全球直连
-        - proxy-groups.steam.proxies.1+节点选择
+        - proxy-groups.STEAM.proxies=[]proxyNames
+        - proxy-groups.STEAM.proxies.0+全球直连
+        - proxy-groups.STEAM.proxies.1+节点选择
       mix-rule-providers:
-        Apple:
+        Bilibili:
           behavior: classical
           interval: 86400
           path: ./Rules/Bilibili.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Bilibili.txt
+        Apple:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/Apple.yaml
           type: http
           url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Apple.txt
         BanAD:

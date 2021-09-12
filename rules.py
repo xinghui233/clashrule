@@ -3,11 +3,13 @@ import re
 
 
 def operation(filename):
-    with open("./ACL4SSR/Clash" + filename, "r", encoding="utf-8") as f:
+    with open("./ACL4SSR/Clash/" + filename, "r", encoding="utf-8") as f:
         f_list = f.readlines()
     content = "payload:\n"
     for i in f_list:
         if i == "\n":
+            continue
+        elif "USER" in i or "URL-REGEX" in i:
             continue
         elif "#" not in i:
             i = "- " + i
