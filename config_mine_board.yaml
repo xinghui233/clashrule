@@ -248,5 +248,26 @@ parsers: # array
 
       prepend-rules:
         - RULE-SET,LocalAreaNetwork,DIRECT
-        - GEOIP,CN,DIRECT
+        - RULE-SET,UnBan,全球直连
+        - RULE-SET,BanAD,全球拦截
+        - RULE-SET,BanProgramAD,全球拦截
+        - RULE-SET,BanEasyList,全球拦截
+        - RULE-SET,BanEasyListChina,全球拦截
+        - RULE-SET,BanEasyPrivacy,全球拦截
+        - RULE-SET,GoogleCN,全球直连
+        - RULE-SET,GoogleFCM,节点选择
+        - RULE-SET,OneDrive,OneDrive
+        - RULE-SET,Microsoft,微软服务
+        - RULE-SET,Apple,全球直连
+        - RULE-SET,Telegram,节点选择
+        - RULE-SET,Steam,STEAM
+        - RULE-SET,Bilibili,哔哩哔哩
+        - RULE-SET,BilibiliHMT,哔哩哔哩
+        - RULE-SET,ProxyMedia,节点选择
+        - RULE-SET,ProxyLite,节点选择
+        - RULE-SET,ProxyGFWlist,节点选择
+        - RULE-SET,ChinaDomain,全球直连
+        - RULE-SET,ChinaCompanyIp,全球直连
+        - RULE-SET,Download,全球直连
+        - GEOIP,CN,全球直连
         - MATCH,其余

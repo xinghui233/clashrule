@@ -1,188 +1,218 @@
 parsers:
-- code: |
+  - reg: .*$
+    code: |
       module.exports.parse = (raw, { yaml }) => {
         const rawObj = yaml.parse(raw)
         const { 'Rule': rules = [], 'Proxy Group':groups = [] } = rawObj
         return yaml.stringify({ ...rawObj, 'proxy-groups': groups, rules })
       }
-  reg: .*$
-  yaml:
-    commands:
-    - proxy-groups.节点选择.proxies=[]proxyNames
-    - proxy-groups.节点选择.proxies.0+全球直连
-    - proxy-groups.节点选择.proxies.1+自动选择
-    - proxy-groups.自动选择.proxies=[]proxyNames
-    - proxy-groups.哔哩哔哩.proxies=[]proxyNames
-    - proxy-groups.哔哩哔哩.proxies.0+全球直连
-    - proxy-groups.哔哩哔哩.proxies.1+节点选择
-    - proxy-groups.steam.proxies=[]proxyNames
-    - proxy-groups.steam.proxies.0+全球直连
-    - proxy-groups.steam.proxies.1+节点选择
-    mix-rule-providers:
-      Apple:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/Bilibili.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Apple.txt
-      BanAD:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/BanAD.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanAD.txt
-      BanEasyList:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/BanEasyList.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyList.txt
-      BanEasyListChina:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/BanEasyListChina.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyListChina.txt
-      BanEasyPrivacy:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/BanEasyPrivacy.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyPrivacy.txt
-      BanProgramAD:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/BanProgramAD.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanProgramAD.txt
-      BilibiliHMT:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/BilibiliHMT.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BilibiliHMT.txt
-      ChinaCompanyIp:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/ChinaCompanyIp.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ChinaCompanyIp.txt
-      ChinaDomain:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/ChinaDomain.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ChinaDomain.txt
-      Download:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/Download.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Download.txt
-      GoogleCN:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/GoogleCN.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/GoogleCN.txt
-      GoogleFCM:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/GoogleFCM.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/GoogleFCM.txt
-      LocalAreaNetwork:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/LocalAreaNetwork.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/LocalAreaNetwork.txt
-      Microsoft:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/Microsoft.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Microsoft.txt
-      OneDrive:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/OneDrive.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/OneDrive.txt
-      ProxyGFWlist:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/ProxyGFWlist.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyGFWlist.txt
-      ProxyLite:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/ProxyLite.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyLite.txt
-      ProxyMedia:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/ProxyMedia.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyMedia.txt
-      Steam:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/Steam.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Steam.txt
-      Telegram:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/Telegram.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Telegram.txt
-      UnBan:
-        behavior: classical
-        interval: 86400
-        path: ./Rules/UnBan.yaml
-        type: http
-        url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/UnBan.txt
-    prepend-proxy-groups:
-    - name: 节点选择
-      type: select
-    - name: 其余
-      proxies:
-      - 节点选择
-      - 全球直连
-      type: select
-    - name: Onedrive
-      proxies:
-      - 全球直连
-      - 节点选择
-      type: select
-    - name: 微软服务
-      proxies:
-      - 全球直连
-      - 节点选择
-      type: select
-    - name: 哔哩哔哩
-      type: select
-    - name: steam
-      type: select
-    - interval: 300
-      name: 自动选择
-      tolerance: 50
-      type: url-test
-      url: http://www.gstatic.com/generate_204
-    - name: 全球直连
-      proxies:
-      - DIRECT
-      - REJECT
-      type: select
-    - name: 全球拦截
-      proxies:
-      - REJECT
-      - DIRECT
-      type: select
-    prepend-rules:
-    - RULE-SET,LocalAreaNetwork,DIRECT
-    - GEOIP,CN,DIRECT
-    - MATCH,其余
+    yaml:
+      prepend-proxy-groups: # 建立策略组
+        - name: 节点选择
+          type: select
+
+        - name: 其余
+          type: select
+          proxies:
+            - 节点选择
+            - 全球直连
+
+        - name: Onedrive
+          type: select
+          proxies:
+            - 全球直连
+            - 节点选择
+
+        - name: 微软服务
+          type: select
+          proxies:
+            - 全球直连
+            - 节点选择
+
+        - name: 哔哩哔哩
+          type: select
+
+        - name: steam
+          type: select
+
+        - name: 自动选择
+          type: url-test # 自动选择延迟最低的节点，也可填 fallback 节点故障时切换下一个，laod-balance 负载均衡
+          url: http://www.gstatic.com/generate_204
+          interval: 300
+          tolerance: 50
+
+        - name: 全球直连
+          type: select
+          proxies:
+            - DIRECT
+            - REJECT
+
+        - name: 全球拦截
+          type: select
+          proxies:
+            - REJECT
+            - DIRECT
+            
+      commands:
+        - proxy-groups.节点选择.proxies=[]proxyNames
+        - proxy-groups.节点选择.proxies.0+全球直连
+        - proxy-groups.节点选择.proxies.1+自动选择
+        - proxy-groups.自动选择.proxies=[]proxyNames
+        - proxy-groups.哔哩哔哩.proxies=[]proxyNames
+        - proxy-groups.哔哩哔哩.proxies.0+全球直连
+        - proxy-groups.哔哩哔哩.proxies.1+节点选择
+        - proxy-groups.steam.proxies=[]proxyNames
+        - proxy-groups.steam.proxies.0+全球直连
+        - proxy-groups.steam.proxies.1+节点选择
+      mix-rule-providers:
+        Apple:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/Bilibili.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Apple.txt
+        BanAD:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/BanAD.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanAD.txt
+        BanEasyList:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/BanEasyList.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyList.txt
+        BanEasyListChina:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/BanEasyListChina.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyListChina.txt
+        BanEasyPrivacy:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/BanEasyPrivacy.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyPrivacy.txt
+        BanProgramAD:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/BanProgramAD.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanProgramAD.txt
+        BilibiliHMT:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/BilibiliHMT.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BilibiliHMT.txt
+        ChinaCompanyIp:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/ChinaCompanyIp.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ChinaCompanyIp.txt
+        ChinaDomain:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/ChinaDomain.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ChinaDomain.txt
+        Download:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/Download.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Download.txt
+        GoogleCN:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/GoogleCN.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/GoogleCN.txt
+        GoogleFCM:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/GoogleFCM.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/GoogleFCM.txt
+        LocalAreaNetwork:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/LocalAreaNetwork.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/LocalAreaNetwork.txt
+        Microsoft:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/Microsoft.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Microsoft.txt
+        OneDrive:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/OneDrive.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/OneDrive.txt
+        ProxyGFWlist:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/ProxyGFWlist.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyGFWlist.txt
+        ProxyLite:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/ProxyLite.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyLite.txt
+        ProxyMedia:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/ProxyMedia.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyMedia.txt
+        Steam:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/Steam.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Steam.txt
+        Telegram:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/Telegram.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Telegram.txt
+        UnBan:
+          behavior: classical
+          interval: 86400
+          path: ./Rules/UnBan.yaml
+          type: http
+          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/UnBan.txt
+      prepend-rules:
+        - RULE-SET,LocalAreaNetwork,DIRECT
+        - RULE-SET,UnBan,全球直连
+        - RULE-SET,BanAD,全球拦截
+        - RULE-SET,BanProgramAD,全球拦截
+        - RULE-SET,BanEasyList,全球拦截
+        - RULE-SET,BanEasyListChina,全球拦截
+        - RULE-SET,BanEasyPrivacy,全球拦截
+        - RULE-SET,GoogleCN,全球直连
+        - RULE-SET,GoogleFCM,节点选择
+        - RULE-SET,OneDrive,OneDrive
+        - RULE-SET,Microsoft,微软服务
+        - RULE-SET,Apple,全球直连
+        - RULE-SET,Telegram,节点选择
+        - RULE-SET,Steam,STEAM
+        - RULE-SET,Bilibili,哔哩哔哩
+        - RULE-SET,BilibiliHMT,哔哩哔哩
+        - RULE-SET,ProxyMedia,节点选择
+        - RULE-SET,ProxyLite,节点选择
+        - RULE-SET,ProxyGFWlist,节点选择
+        - RULE-SET,ChinaDomain,全球直连
+        - RULE-SET,ChinaCompanyIp,全球直连
+        - RULE-SET,Download,全球直连
+        - GEOIP,CN,全球直连
+        - MATCH,其余
