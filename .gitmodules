@@ -1,0 +1,9 @@
+[submodule "ACL4SSR"]
+	path = ACL4SSR
+	url = https://github.com/ACL4SSR/ACL4SSR
+[submodule "clash-rules"]
+	path = clash-rules
+	url = https://github.com/Loyalsoldier/clash-rules
+[submodule "Profiles"]
+	path = Profiles
+	url = https://github.com/DivineEngine/Profiles
