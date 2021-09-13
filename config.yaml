@@ -70,133 +70,133 @@ parsers:
           interval: 86400
           path: ./Rules/Bilibili.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Bilibili.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/Bilibili.txt
         Apple:
           behavior: classical
           interval: 86400
           path: ./Rules/Apple.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Apple.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/Apple.txt
         BanAD:
           behavior: classical
           interval: 86400
           path: ./Rules/BanAD.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanAD.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/BanAD.txt
         BanEasyList:
           behavior: classical
           interval: 86400
           path: ./Rules/BanEasyList.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyList.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/BanEasyList.txt
         BanEasyListChina:
           behavior: classical
           interval: 86400
           path: ./Rules/BanEasyListChina.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyListChina.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/BanEasyListChina.txt
         BanEasyPrivacy:
           behavior: classical
           interval: 86400
           path: ./Rules/BanEasyPrivacy.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanEasyPrivacy.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/BanEasyPrivacy.txt
         BanProgramAD:
           behavior: classical
           interval: 86400
           path: ./Rules/BanProgramAD.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BanProgramAD.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/BanProgramAD.txt
         BilibiliHMT:
           behavior: classical
           interval: 86400
           path: ./Rules/BilibiliHMT.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/BilibiliHMT.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/BilibiliHMT.txt
         ChinaCompanyIp:
           behavior: classical
           interval: 86400
           path: ./Rules/ChinaCompanyIp.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ChinaCompanyIp.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/ChinaCompanyIp.txt
         ChinaDomain:
           behavior: classical
           interval: 86400
           path: ./Rules/ChinaDomain.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ChinaDomain.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/ChinaDomain.txt
         Download:
           behavior: classical
           interval: 86400
           path: ./Rules/Download.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Download.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/Download.txt
         GoogleCN:
           behavior: classical
           interval: 86400
           path: ./Rules/GoogleCN.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/GoogleCN.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/GoogleCN.txt
         GoogleFCM:
           behavior: classical
           interval: 86400
           path: ./Rules/GoogleFCM.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/GoogleFCM.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/GoogleFCM.txt
         LocalAreaNetwork:
           behavior: classical
           interval: 86400
           path: ./Rules/LocalAreaNetwork.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/LocalAreaNetwork.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/LocalAreaNetwork.txt
         Microsoft:
           behavior: classical
           interval: 86400
           path: ./Rules/Microsoft.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Microsoft.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/Microsoft.txt
         OneDrive:
           behavior: classical
           interval: 86400
           path: ./Rules/OneDrive.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/OneDrive.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/OneDrive.txt
         ProxyGFWlist:
           behavior: classical
           interval: 86400
           path: ./Rules/ProxyGFWlist.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyGFWlist.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/ProxyGFWlist.txt
         ProxyLite:
           behavior: classical
           interval: 86400
           path: ./Rules/ProxyLite.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyLite.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/ProxyLite.txt
         ProxyMedia:
           behavior: classical
           interval: 86400
           path: ./Rules/ProxyMedia.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/ProxyMedia.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/ProxyMedia.txt
         Steam:
           behavior: classical
           interval: 86400
           path: ./Rules/Steam.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Steam.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/Steam.txt
         Telegram:
           behavior: classical
           interval: 86400
           path: ./Rules/Telegram.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/Telegram.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/Telegram.txt
         UnBan:
           behavior: classical
           interval: 86400
           path: ./Rules/UnBan.yaml
           type: http
-          url: https://raw.githubusercontent.com/xinghui233/clashrule/myrules/rules/clash/UnBan.txt
+          url: https://cdn.jsdelivr.net/gh/xinghui233/clashrule@myrules/rules/clash/UnBan.txt
       prepend-rules:
         - RULE-SET,LocalAreaNetwork,DIRECT
         - RULE-SET,UnBan,全球直连
