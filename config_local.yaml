@@ -151,6 +151,7 @@ parsers:
     prepend-rules:
     - RULE-SET,LocalAreaNetwork,DIRECT
     - RULE-SET,mydirect,全球直连
+    - DOMAIN-SUFFIX,azureedge.net,节点选择
     - RULE-SET,UnBan,全球直连
     - RULE-SET,BanAD,全球拦截
     - RULE-SET,BanProgramAD,全球拦截
